@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8"/>
+    <title></title>
+</head>
+<body>
+<h1>Search Shit</h1>
+
+<form th:action="@{/results}" method = "post">
+    <h2>Search by:</h2>
+
+    <p>
+            <span th:each="choice : ${choices}">
+                <input
+                        type="radio"
+                        name="searchType"
+                        th:id="${choice.key}"
+                        th:value="${choice.key}"
+                        th:checked="${choice.key == 'cocktails'}"/>
+                <label th:for="${choice.key}" th:text="${choice.value}"></label>
+            </span>
+
+    </p>
+
+    <p>
+        <label for="searchTerm">Keyword:</label>
+        <input type="text" name="searchTerm" id="searchTerm" />
+    </p>
+
+    <input type="submit" value="Search" />
+</form>
+
+    <ol>
+        <li th:each="cocktail : ${cocktails}" th:text="${cocktail.strDrink}"></li>
+    </ol>
+    <ol>
+        <li th:each="ingred : ${ingreds}" th:text="${ingred.ingredient}"></li>
+    </ol>
+<!--    <ol>-->
+<!--        <li th:each="ingred : ${ingreds}" th:text="${ingreds.ingredient}"></li>-->
+<!--    </ol>-->
+
+</body>
+</html>
+
+
