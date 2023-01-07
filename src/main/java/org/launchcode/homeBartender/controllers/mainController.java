@@ -23,7 +23,6 @@ public class mainController {
         model.addAttribute("cocktails",cocktailRepository.findAll());
         model.addAttribute("ingredients",ingredientsRepository.findAll());
 
-
         return "main";
     }
 }

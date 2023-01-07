@@ -13,7 +13,6 @@ public class Ingredients {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    @Column(name="ingredient_id")
     private int id;
 
     @OneToOne
