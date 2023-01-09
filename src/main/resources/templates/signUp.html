@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+</head>
+<body>
+<h1>Sign Up</h1>
+
+    <form th:action="@{/signUp}" th:object="${formData}" method="post">
+        <label for="first_name">First Name:</label><br>
+        <input type="text" th:field="*{first_name}" id="first_name" name="first_name" required><br>
+        <div th:if="${#fields.hasErrors('first_name')}" th:errors="*{first_name}"> Error</div>
+        <label for="last_name">Last Name:</label><br>
+        <input type="text" th:field="*{last_name}" id="last_name" name="last_name" required><br>
+        <div th:if="${#fields.hasErrors('last_name')}" th:errors="*{last_name}"> Error</div>
+        <label for="username">Username:</label><br>
+        <input type="text" th:field="*{username}" id="username" name="username" required><br>
+        <div th:if="${#fields.hasErrors('username')}" th:errors="*{username}"> Error</div>
+        <label for="email">Email:</label><br>
+        <input type="email" th:field="*{email}"id="email" name="email" required><br>
+        <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}"> Error</div>
+        <label for="birthdate">Birthday:</label><br>
+        <input type="date" th:field="*{birthdate}" id="birthdate" name="birthdate" required><br>
+        <div th:if="${#fields.hasErrors('birthdate')}" th:errors="*{birthdate}"> Error</div>
+        <label for="password">Create Password:</label><br>
+        <input type="password" th:field="*{password}"id="password" name="password" required><br>
+        <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}"> Error</div>
+        <label for="confirm_password">Confirm Password:</label><br>
+        <input type="password"  th:field="*{confirm_password}" id="confirm_password" name="confirm_password" required><br>
+            <div th:if="${#fields.hasErrors('confirm_password')}" th:errors="*{confirm_password}"> Error</div>
+        <input type="submit" value="Submit">
+    </form>
+
+</body>
+</html>
